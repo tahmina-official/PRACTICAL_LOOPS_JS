@@ -21,12 +21,7 @@ This project contains three basic JavaScript exercises to practice loops, condit
 - Splits data into rows and columns
 - Prints each row to the console
 
-## How to Run
-
-```bash
-node script.js
-
----
+------
 
 ## 👩‍💻 Author
 **Tahmina Akter**
@@ -35,3 +30,4 @@ node script.js
 
 ## 📄 License
 This project is licensed for educational purposes only and is intended for learning and demonstration use.
+
