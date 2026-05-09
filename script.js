@@ -4,7 +4,9 @@
 // If a number is divisible by 5, log “Buzz.”
 // If a number is divisible by both 3 and 5, log “Fizz Buzz.”
 // If a number is not divisible by either 3 or 5, log the number.
+
 console.log("Part 1: Fizz Buzz");
+console.log("==============================================");
 for (let i = 1; i <= 100; i++) {
   if (i % 3 === 0 && i % 5 === 0) {
     console.log("Fizz Buzz");
@@ -16,6 +18,7 @@ for (let i = 1; i <= 100; i++) {
     console.log(i);
   }
 }
+console.log("==============================================");
 
 // Part 2: Prime Time
 // Start at n
@@ -49,6 +52,8 @@ while (!foundPrime) { //Use a while loop because we don’t know how many number
   }
 }
 
+console.log("==============================================");
+
 // Part 3: Feeling Loopy
 // Loop through the characters of a given CSV string.
 // Store each “cell” of data in a variable.
@@ -62,6 +67,7 @@ while (!foundPrime) { //Use a while loop because we don’t know how many number
 // There will be no escaped characters other than “\n”.
 
 console.log("Part 3: Feeling Loopy");
+console.log("==============================================");
 
 const csv = 
 `ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26`;
@@ -119,3 +125,41 @@ if (cell.length > 0) {
   row.push(cell);                 // Add final cell to the row
   console.log(row.join(" "));    // Print the last row
 }
+console.log("==============================================");
+
+// User Input
+console.log("Part 2: Prime Number");
+console.log("==============================================");
+
+// This imports readline Node.js’s built-in module for taking user input from the terminal. Without this, Node.js cannot ask the user for input.
+const readline = require("readline"); 
+
+// Create an input/output interface
+const rl = readline.createInterface({  // rl is a object
+  input: process.stdin,   // takes input from keyboard
+  output: process.stdout // shows output on screen
+});
+
+rl.question("Enter a number: ", function (input) {
+  let n = parseInt(input);  // User input is always a string so Convert string → number
+
+  console.log("Prime numbers from 2 to", n);
+
+  for (let num = 2; num <= n; num++) {
+    let isPrime = true;
+
+    //We only check up to square root because it is faster. If num = 9 then Math.sqrt(9) = 3 so loop checks: i = 2; i = 3
+    for (let i = 2; i <= Math.sqrt(num); i++) { 
+      if (num % i === 0) {
+        isPrime = false; // We found a divisor so the number is not prime
+        break; // So break exits the loop immediately.
+      }
+    }
+
+    if (isPrime) {
+      console.log(num);
+    }
+  }
+
+  rl.close(); // This stops the program properly after finishing. Without this, Node may keep waiting for more input.
+});
