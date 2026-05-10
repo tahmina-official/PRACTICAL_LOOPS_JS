@@ -128,7 +128,7 @@ if (cell.length > 0) {
 console.log("=================================================================================================");
 
 
-// This will work perfectly in the browser with prompt
+// This will work perfectly in the browser with prompt not Git bash terminal
 // Let the user input a number and then print all prime numbers from 2 to that number
 console.log("Part 2: Let the user input a number and then print all prime numbers from 2 to that number");
 console.log("=================================================================================================");
@@ -153,43 +153,3 @@ for (let num = 2; num <= m; num++) {
               console.log(num);
           }
 }
-
-
-// This will work perfectly in the node.js bash terminal. 
-// Let the user input a number and then print all prime numbers from 2 to that number
-
-// console.log("Part 2: Prime Number");
-// console.logconsole.log("=================================================================================================");
-
-// // This imports readline Node.js’s built-in module for taking user input from the terminal. Without this, Node.js cannot ask the user for input.
-// const readline = require("readline"); 
-
-// // Create an input/output interface
-// const rl = readline.createInterface({  // rl is a object
-//   input: process.stdin,   // takes input from keyboard
-//   output: process.stdout // shows output on screen
-// });
-
-// rl.question("Enter a number: ", function (input) {
-//   let n = parseInt(input);  // User input is always a string so Convert string → number
-
-//   console.log("Prime numbers from 2 to", n);
-
-//   for (let num = 2; num <= n; num++) {
-//     let isPrime = true;
-
-//     //We only check up to square root because it is faster. If num = 9 then Math.sqrt(9) = 3 so loop checks: i = 2; i = 3
-//     for (let i = 2; i <= Math.sqrt(num); i++) { 
-//       if (num % i === 0) {
-//         isPrime = false; // We found a divisor so the number is not prime
-//         break; // So break exits the loop immediately.
-//       }
-//     }
-
-//     if (isPrime) {
-//       console.log(num);
-//     }
-//   }
-
-//   rl.close(); // This stops the program properly after finishing. Without this, Node may keep waiting for more input.
-// });
