@@ -17,9 +17,26 @@ This project contains three basic JavaScript exercises to practice loops, condit
 - Uses loops and conditional checks
 
 ### 3. CSV Parser
-- Reads a CSV string manually
-- Splits data into rows and columns
-- Prints each row to the console
+## 🧠 Concept
+CSV data is structured like this:
+
+- **Rows** are separated by new lines (`\n`)
+- **Columns (cells)** are separated by commas (`,`)
+
+The program reads the string character-by-character and builds:
+- A `cell` (current value)
+- A `row` (array of cells)
+- A `column` (2D array of rows)
+
+---
+
+## 📊 Input Example
+```js
+ID,Name,Occupation,Age
+42,Bruce,Knight,41
+57,Bob,Fry Cook,19
+63,Blaine,Quiz Master,58
+98,Bill,Doctor’s Assistant,26
 
 ------
 
