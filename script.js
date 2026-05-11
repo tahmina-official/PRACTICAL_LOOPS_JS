@@ -66,66 +66,79 @@ console.log("===================================================================
 // There will only be 4 cells per row.
 // There will be no escaped characters other than “\n”.
 
-console.log("Part 3: Feeling Loopy");
+console.log("Part 3: Feeling Loopy"); 
+// Prints the section title
+
 console.log("=================================================================================================");
+// Prints a separator line for readability
 
 const csv = 
 `ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26`;
+// Stores CSV data as a single string with \n representing new rows
 
 let cell = "";
+// Temporary storage for the current cell value being built
+
 let row = [];
+// Temporary storage for the current row (1D array)
 
-for (let i = 0; i < csv.length; i++) {     // Loop through every character in the CSV string
-  const char = csv[i];                    // Get the current character
+let column = [];   
+// Final 2D array that will store all rows
 
-  /*
-    STEP 1:
-    If the character is a newline (\n),
-    it means the current row is finished.
-  */
-  
-    if (char === "\n") {
-    row.push(cell);                // Add the last cell to the row
-    console.log(row.join(" "));   // Print the completed row
- 
-    // Reset row and cell for the next row
-    row = [];
+for (let i = 0; i < csv.length; i++) {
+  // Loop through every character in the CSV string
+
+  const char = csv[i];
+  // Get the current character
+
+  // If we reach a new line, the row is finished
+  if (char === "\n") {
+    row.push(cell);        
+    // Add the last cell of the row
+
+    column.push(row);      
+    // Add completed row into the 2D array
+
+    row = [];              
+    // Reset row for next line
+
+    cell = "";             
+    // Reset cell for next value
+  }
+
+  // If we hit a comma, we finished a cell
+  else if (char === ",") {
+    row.push(cell);
+    // Store completed cell into row
+
     cell = "";
+    // Reset cell for next value
   }
 
-  /*
-    STEP 2:
-    If the character is a comma,
-    it means the current cell is finished.
-  */
-  
-    else if (char === ",") {
-    row.push(cell);    // Save the completed cell into the row array
-    cell = "";        // Reset cell to start collecting the next value
-  }
-
-  /*
-    STEP 3:
-    Ignore carriage returns (\r)
-    used in Windows line endings.
-  */
-
-  else if (char !== "\r") {    
-    cell += char;  // Add the character to the current cell
+  // Ignore Windows-style carriage return characters
+  else if (char !== "\r") {
+    cell += char;
+    // Build the current cell character by character
   }
 }
 
-/*
-  STEP 4:
-  After the loop ends,
-  there is still one last row remaining.
-*/
-
+// After loop ends, handle the last remaining cell
 if (cell.length > 0) {
-  row.push(cell);                 // Add final cell to the row
-  console.log(row.join(" "));    // Print the last row
+  row.push(cell);
+  // Push final cell into row
 }
+
+// After loop ends, handle the last row
+if (row.length > 0) {
+  column.push(row);
+  // Push final row into 2D array
+}
+
+// Output the final 2D array
+console.log(column);
+
 console.log("=================================================================================================");
+// Prints closing separator line
 
 
 // This will work perfectly in the browser with prompt not Git bash terminal
