@@ -128,26 +128,26 @@ console.log("===================================================================
 
 // This will work perfectly in the browser with prompt not Git bash terminal
 // Let the user input a number and then print all prime numbers from 2 to that number
-// console.log("Part 2: Let the user input a number and then print all prime numbers from 2 to that number");
-// console.log("=================================================================================================");
+console.log("Part 2: Let the user input a number and then print all prime numbers from 2 to that number");
+console.log("=================================================================================================");
 
-// let m = parseInt(prompt("Enter a number"));
+let m = parseInt(prompt("Enter a number"));
 
-// console.log("Prime numbers from 2 to", m);
+console.log("Prime numbers from 2 to", m);
 
-// for (let num = 2; num <= m; num++) {
+for (let num = 2; num <= m; num++) {
 
-//   let isPrime = true;
+  let isPrime = true;
 
-//   for (let i = 2; i <= Math.sqrt(num); i++) {
+  for (let i = 2; i <= Math.sqrt(num); i++) {
 
-//     if (num % i === 0) {
-//       isPrime = false;
-//       break;
-//     }
-//   }
+    if (num % i === 0) {
+      isPrime = false;
+      break;
+    }
+  }
 
-//   if (isPrime) {
-//     console.log(num);
-//   }
-// }
+  if (isPrime) {
+    console.log(num);
+  }
+ }
